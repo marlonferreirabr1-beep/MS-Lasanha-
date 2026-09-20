@@ -1,0 +1,6 @@
+{
+  "name": "MS Lasanha",
+  "description": "Bio site oficial da MS Lasanha. Lasanhas artesanais feitas com dedicação, sabor e história. Peça pelo iFood, 99Food ou WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

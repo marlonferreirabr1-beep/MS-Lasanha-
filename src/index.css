@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-ice: #F8F8F6;
+  --color-ice-card: #FFFFFF;
+  --color-ice-border: #E8E7E3;
+  --color-taupe: #685B53;
+  --color-taupe-dark: #423832;
+  --color-taupe-light: #94867D;
+  --color-charcoal: #1D1B1A;
+  --color-champagne: #C5A880;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8F8F6;
+  color: #1D1B1A;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+}
+
+/* 3D Physical Embossed Badge & Card effects */
+.badge-3d {
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 10px 20px -3px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.06);
+}
+
+.badge-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.06),
+    0 16px 28px -4px rgba(0, 0, 0, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.card-luxury {
+  background: #FFFFFF;
+  border: 1px solid #EBE9E4;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.02),
+    0 12px 30px -8px rgba(35, 30, 25, 0.06);
+}
+
+.card-luxury:hover {
+  border-color: #DDD9D2;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.03),
+    0 20px 40px -10px rgba(35, 30, 25, 0.09);
+}
+
+/* Hide scrollbar for carousel while preserving smooth scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle metallic/champagne sheen */
+.metallic-gleam {
+  background: linear-gradient(135deg, rgba(212, 188, 139, 0.15) 0%, rgba(255, 255, 255, 0) 50%, rgba(212, 188, 139, 0.1) 100%);
+}
