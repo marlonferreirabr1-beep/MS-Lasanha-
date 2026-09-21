@@ -8,79 +8,50 @@ export const InstagramSection: React.FC = () => {
   return (
     <section
       id="instagram-section"
-      className="relative py-16 sm:py-24 px-5 bg-[#F8F8F6] border-t border-[#ECEAE5] overflow-hidden"
+      className="relative py-20 sm:py-28 px-5 bg-transparent border-t border-[#201C1A]/5 overflow-hidden"
     >
-      <div className="max-w-xl w-full mx-auto text-center flex flex-col items-center">
-        {/* Subtle Pill Tag */}
+      <div className="max-w-2xl w-full mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-white border border-[#E8E6E1] text-[11px] font-semibold tracking-wider text-[#73655C] uppercase shadow-xs"
+          initial={{ opacity: 0, y: 30, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="card-3d rounded-3xl p-8 sm:p-12 text-center flex flex-col items-center relative overflow-hidden"
         >
-          <Camera className="w-3 h-3 text-[#E1306C]" />
-          <span>Redes Sociais</span>
-        </motion.div>
+          {/* Subtle 3D Pill Tag */}
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/90 border-t border-t-white border-b border-b-[#DDD2C4] border-x border-white/60 text-[11px] font-bold tracking-widest text-[#6E5E54] uppercase shadow-[0_6px_16px_rgba(60,45,30,0.06),inset_0_1px_1px_rgba(255,255,255,0.95)]">
+            <Camera className="w-3.5 h-3.5 text-[#E1306C]" />
+            <span>Redes Sociais</span>
+          </div>
 
-        {/* 3D Tactile Instagram Logo in Prominence */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.88 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mb-6 group cursor-pointer"
-        >
-          <PlatformBadge platform="instagram" size="xl" />
-        </motion.div>
+          {/* 3D Tactile Instagram Logo with Ambient Glow */}
+          <div className="mb-6 relative group cursor-pointer">
+            <div className="absolute -inset-2 bg-gradient-to-tr from-[#FFDC80] via-[#FD1D1D] to-[#833AB4] opacity-20 blur-xl rounded-3xl group-hover:opacity-40 transition-opacity pointer-events-none" />
+            <PlatformBadge platform="instagram" size="xl" className="group-hover:scale-110 transition-transform duration-500" />
+          </div>
 
-        {/* Section Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-[#221E1C] mb-3"
-        >
-          Acompanhe a MS Lasanha
-        </motion.h2>
+          {/* Section Title */}
+          <h2 className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-[#221E1C] mb-3">
+            Acompanhe a MS Lasanha
+          </h2>
 
-        {/* Exact Text */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-sm sm:text-base text-[#6E645D] max-w-md mx-auto mb-8 font-normal leading-relaxed"
-        >
-          Siga a gente no Instagram e acompanhe nossas novidades, sabores e bastidores.
-        </motion.p>
+          {/* Exact Text */}
+          <p className="text-sm sm:text-base text-[#6E635B] max-w-md mx-auto mb-5 font-normal leading-relaxed">
+            Siga a gente no Instagram e acompanhe nossas novidades, sabores e bastidores.
+          </p>
 
-        {/* Handle Preview */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mb-6 inline-flex items-center gap-1.5 text-xs font-semibold text-[#8C7E74] tracking-wide"
-        >
-          <span>@mslasanha</span>
-        </motion.div>
+          {/* Handle Preview */}
+          <div className="mb-8 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#F5EFE6] border border-[#E4D9C8] text-xs font-bold text-[#5C4F46] tracking-wide shadow-2xs">
+            <span>@mslasanha</span>
+          </div>
 
-        {/* Exact Button: "SEGUIR NO INSTAGRAM" with link */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full sm:w-auto"
-        >
+          {/* Exact Button: "SEGUIR NO INSTAGRAM" with 3D relief */}
           <a
             id="instagram-button"
             href={LINKS.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 py-4 px-8 rounded-full bg-gradient-to-r from-[#D92B6B] via-[#E1306C] to-[#C13584] hover:from-[#C2185B] hover:to-[#AD1457] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase shadow-[0_10px_25px_-5px_rgba(225,48,108,0.35)] hover:shadow-[0_14px_30px_-4px_rgba(225,48,108,0.45)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 py-4 px-9 rounded-2xl bg-gradient-to-b from-[#E1306C] to-[#B01A52] border-t border-t-white/40 border-b-3 border-b-[#7A0D36] text-white text-xs sm:text-sm font-extrabold tracking-wider uppercase shadow-[0_12px_24px_rgba(225,48,108,0.3)] hover:shadow-[0_16px_32px_rgba(225,48,108,0.45)] hover:-translate-y-0.5 active:translate-y-1 active:border-b transition-all duration-200"
           >
             <span>SEGUIR NO INSTAGRAM</span>
             <ExternalLink className="w-4 h-4 opacity-90" />

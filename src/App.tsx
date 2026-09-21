@@ -9,6 +9,7 @@ import { FinalOrderSection } from './components/FinalOrderSection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { OrderModal } from './components/OrderModal';
+import { ThreeDBackground } from './components/ThreeDBackground';
 import { ProductItem } from './data/constants';
 
 export default function App() {
@@ -42,42 +43,45 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#F8F8F6] text-[#1D1B1A] selection:bg-[#4A3F38] selection:text-[#FAF8F5]">
-      {/* Top micro brand banner (discreet, luxury, non-intrusive) */}
-      <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[#F8F8F6]/85 border-b border-[#EAE8E2] transition-colors">
+    <div className="relative min-h-screen text-[#1E1B19] selection:bg-[#4A3F38] selection:text-[#FAF8F5]">
+      {/* 3D Kinetic Background with Glass Bubbles, Parallax & Creamy Warm Ambient Lights */}
+      <ThreeDBackground />
+
+      {/* Top micro brand banner (discreet, luxury, 3D glassmorphism) */}
+      <header className="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#FAF6F0]/80 border-b border-white/60 shadow-[0_4px_20px_rgba(50,40,30,0.04),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           <button
             onClick={() => scrollToSection('hero-section')}
-            className="flex items-center gap-2 text-left cursor-pointer group"
+            className="flex items-center gap-2.5 text-left cursor-pointer group"
           >
-            <span className="font-serif font-bold text-lg sm:text-xl tracking-tight text-[#201C1A] group-hover:text-[#685B53] transition-colors">
+            <span className="font-serif font-bold text-lg sm:text-2xl tracking-tight text-[#221E1C] group-hover:text-[#685B53] transition-colors">
               MS Lasanha
             </span>
-            <span className="hidden xs:inline-block w-1 h-1 rounded-full bg-[#C5A880]" />
+            <span className="hidden xs:inline-block w-1.5 h-1.5 rounded-full bg-[#C5A880] shadow-[0_0_8px_rgba(197,168,128,0.8)]" />
             <span className="hidden sm:inline-block text-xs text-[#82746B] font-medium tracking-wide">
-              Artesanal & Premium
+              Gastronomia Artesanal
             </span>
           </button>
 
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={() => scrollToSection('products-section')}
-              className="text-xs sm:text-sm font-medium text-[#685B53] hover:text-[#201C1A] px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+              className="text-xs sm:text-sm font-semibold text-[#685B53] hover:text-[#221E1C] px-3 py-1.5 rounded-xl hover:bg-white/60 transition-all cursor-pointer"
             >
               Lasanhas
             </button>
             <button
               onClick={() => scrollToSection('history-section')}
-              className="text-xs sm:text-sm font-medium text-[#685B53] hover:text-[#201C1A] px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+              className="text-xs sm:text-sm font-semibold text-[#685B53] hover:text-[#221E1C] px-3 py-1.5 rounded-xl hover:bg-white/60 transition-all cursor-pointer"
             >
-              História
+              Nossa História
             </button>
             <button
               onClick={() => {
                 setSelectedProduct(null);
                 setIsModalOpen(true);
               }}
-              className="text-xs font-semibold uppercase tracking-wider bg-[#382F2A] hover:bg-[#221C1A] text-white px-3.5 sm:px-4 py-2 rounded-full transition-all shadow-xs active:scale-95 cursor-pointer"
+              className="btn-3d-primary text-xs font-bold uppercase tracking-wider text-white px-4 sm:px-5 py-2 rounded-xl cursor-pointer"
             >
               Pedir
             </button>

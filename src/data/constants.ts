@@ -3,6 +3,8 @@ export interface ProductItem {
   name: string;
   subtitle?: string;
   weight: string;
+  serves?: string;
+  servesHighlight?: boolean;
   image: string;
   alt: string;
   badge?: string;
@@ -18,6 +20,7 @@ export const BRAND = {
   name: 'MS Lasanha',
   tagline: 'Lasanhas feitas com dedicação, sabor e história.',
   logo: 'https://i.postimg.cc/CMRrP99F/file-000000004494820e949297e1148b9a44.png',
+  neutralBackground: 'https://i.postimg.cc/ZKfJ6WBd/modelo-de-plano-de-fundo-padrao-de-cor-neutra-vetor-656853-281.jpg',
 };
 
 export const LINKS = {
@@ -49,11 +52,13 @@ export const PRODUCTS: ProductItem[] = [
   {
     id: 'frango-1kg',
     name: 'Lasanha de Frango',
-    subtitle: 'Receita Tradicional',
+    subtitle: 'Lasanha de Frango',
     weight: '1kg',
+    serves: 'Serve 2 pessoas',
+    servesHighlight: true,
     image: 'https://i.postimg.cc/GhGCN46b/Screenshot-20260920-084718-i-Food.png',
-    alt: 'Lasanha de Frango 1kg MS Lasanha',
-    badge: 'Para a Família',
+    alt: 'Lasanha de Frango 1kg MS Lasanha - Serve 2 pessoas',
+    badge: 'Para Compartilhar',
   },
 ];
 

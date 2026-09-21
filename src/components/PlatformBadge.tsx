@@ -16,17 +16,10 @@ export const PlatformBadge: React.FC<PlatformBadgeProps> = ({
   className = '',
 }) => {
   const sizeClasses = {
-    sm: 'w-8 h-8 rounded-xl',
-    md: 'w-12 h-12 rounded-2xl',
+    sm: 'w-9 h-9 rounded-xl',
+    md: 'w-13 h-13 rounded-2xl',
     lg: 'w-16 h-16 rounded-[22px]',
     xl: 'w-20 h-20 rounded-[28px]',
-  };
-
-  const iconSizes = {
-    sm: 18,
-    md: 26,
-    lg: 36,
-    xl: 46,
   };
 
   const getPlatformDetails = () => {
@@ -34,27 +27,25 @@ export const PlatformBadge: React.FC<PlatformBadgeProps> = ({
       case 'ifood':
         return {
           name: 'iFood',
-          bg: 'bg-gradient-to-b from-[#EA1D2C] to-[#C4121F]',
-          shadow: 'shadow-[0_10px_25px_-5px_rgba(234,29,44,0.38),inset_0_1.5px_1.5px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.25)]',
-          border: 'border border-white/20',
+          bg: 'bg-gradient-to-b from-[#FF2B3A] via-[#EA1D2C] to-[#B30F1C]',
+          shadow: 'shadow-[0_12px_28px_-6px_rgba(234,29,44,0.48),0_4px_10px_rgba(234,29,44,0.25),inset_0_2px_3px_rgba(255,255,255,0.65),inset_0_-3px_5px_rgba(0,0,0,0.35)]',
+          border: 'border-t-2 border-t-white/70 border-b-2 border-b-black/30 border-x border-white/30',
+          glow: 'group-hover:shadow-[0_16px_36px_-4px_rgba(234,29,44,0.65),0_6px_14px_rgba(234,29,44,0.35),inset_0_2.5px_4px_rgba(255,255,255,0.85)]',
           renderLogo: () => (
-            // Official iFood smiley with red base and authentic white smile dots/mouth
             <svg
               viewBox="0 0 100 100"
-              className="w-full h-full p-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+              className="w-full h-full p-2.5 drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g fill="#FFFFFF">
-                {/* iFood iconic typographic mark & smiley */}
+                {/* Authentic iFood mark & smiley */}
                 <path d="M22 36c-2.4 0-4.3 1.9-4.3 4.3v24.4c0 2.4 1.9 4.3 4.3 4.3 2.4 0 4.3-1.9 4.3-4.3V40.3c0-2.4-1.9-4.3-4.3-4.3z" />
                 <circle cx="22" cy="27" r="4.3" />
-                {/* Smile curve */}
                 <path
                   d="M34 57c4.2 9.5 13.6 15 24 15 10.4 0 19.8-5.5 24-15 1.1-2.4-.4-5.1-3-5.5-2.4-.4-4.7 1.1-5.5 3.3-2.9 6.8-9.1 10.5-15.5 10.5-6.4 0-12.6-3.7-15.5-10.5-.8-2.2-3.1-3.7-5.5-3.3-2.6.4-4.1 3.1-3 5.5z"
                   fill="#FFFFFF"
                 />
-                {/* Food Dots / Taste accent */}
                 <circle cx="45" cy="41" r="5" />
                 <circle cx="71" cy="41" r="5" />
               </g>
@@ -64,21 +55,20 @@ export const PlatformBadge: React.FC<PlatformBadgeProps> = ({
       case '99food':
         return {
           name: '99Food',
-          bg: 'bg-gradient-to-b from-[#FFA726] to-[#F57C00]',
-          shadow: 'shadow-[0_10px_25px_-5px_rgba(245,124,0,0.38),inset_0_1.5px_1.5px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.2)]',
-          border: 'border border-white/25',
+          bg: 'bg-gradient-to-b from-[#FFB74D] via-[#FF9100] to-[#E65100]',
+          shadow: 'shadow-[0_12px_28px_-6px_rgba(255,145,0,0.48),0_4px_10px_rgba(255,145,0,0.25),inset_0_2px_3px_rgba(255,255,255,0.7),inset_0_-3px_5px_rgba(0,0,0,0.3)]',
+          border: 'border-t-2 border-t-white/70 border-b-2 border-b-black/30 border-x border-white/30',
+          glow: 'group-hover:shadow-[0_16px_36px_-4px_rgba(255,145,0,0.65),0_6px_14px_rgba(255,145,0,0.35),inset_0_2.5px_4px_rgba(255,255,255,0.9)]',
           renderLogo: () => (
-            // Official 99 / 99Food brand emblem
             <svg
               viewBox="0 0 100 100"
-              className="w-full h-full p-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.18)]"
+              className="w-full h-full p-2.5 drop-shadow-[0_2px_5px_rgba(0,0,0,0.3)]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g fill="#FFFFFF">
-                {/* Left '9' */}
+                {/* 99 typography */}
                 <path d="M38 30c-7.2 0-13 5.8-13 13 0 7.2 5.8 13 13 13 3.1 0 6-.9 8.2-2.7L39 70h7.5l8.5-27.5V30H38zm0 19.5c-3.6 0-6.5-2.9-6.5-6.5s2.9-6.5 6.5-6.5 6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z" />
-                {/* Right '9' */}
                 <path d="M62 30c-7.2 0-13 5.8-13 13 0 7.2 5.8 13 13 13 3.1 0 6-.9 8.2-2.7L63 70h7.5l8.5-27.5V30H62zm0 19.5c-3.6 0-6.5-2.9-6.5-6.5s2.9-6.5 6.5-6.5 6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z" />
               </g>
             </svg>
@@ -87,14 +77,14 @@ export const PlatformBadge: React.FC<PlatformBadgeProps> = ({
       case 'whatsapp':
         return {
           name: 'WhatsApp',
-          bg: 'bg-gradient-to-b from-[#2FD666] to-[#1EBE5D]',
-          shadow: 'shadow-[0_10px_25px_-5px_rgba(37,211,102,0.38),inset_0_1.5px_1.5px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.2)]',
-          border: 'border border-white/25',
+          bg: 'bg-gradient-to-b from-[#4EED85] via-[#22C55E] to-[#148A3E]',
+          shadow: 'shadow-[0_12px_28px_-6px_rgba(34,197,94,0.48),0_4px_10px_rgba(34,197,94,0.25),inset_0_2px_3px_rgba(255,255,255,0.7),inset_0_-3px_5px_rgba(0,0,0,0.3)]',
+          border: 'border-t-2 border-t-white/70 border-b-2 border-b-black/30 border-x border-white/30',
+          glow: 'group-hover:shadow-[0_16px_36px_-4px_rgba(34,197,94,0.65),0_6px_14px_rgba(34,197,94,0.35),inset_0_2.5px_4px_rgba(255,255,255,0.9)]',
           renderLogo: () => (
-            // Official WhatsApp icon with phone bubble
             <svg
               viewBox="0 0 100 100"
-              className="w-full h-full p-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+              className="w-full h-full p-2 drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -109,13 +99,13 @@ export const PlatformBadge: React.FC<PlatformBadgeProps> = ({
         return {
           name: 'Instagram',
           bg: 'bg-gradient-to-tr from-[#FFDC80] via-[#F77737] via-[#E1306C] via-[#C13584] to-[#833AB4]',
-          shadow: 'shadow-[0_10px_25px_-5px_rgba(225,48,108,0.38),inset_0_1.5px_1.5px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.2)]',
-          border: 'border border-white/25',
+          shadow: 'shadow-[0_12px_28px_-6px_rgba(225,48,108,0.48),0_4px_10px_rgba(225,48,108,0.25),inset_0_2px_3px_rgba(255,255,255,0.7),inset_0_-3px_5px_rgba(0,0,0,0.3)]',
+          border: 'border-t-2 border-t-white/70 border-b-2 border-b-black/30 border-x border-white/30',
+          glow: 'group-hover:shadow-[0_16px_36px_-4px_rgba(225,48,108,0.65),0_6px_14px_rgba(225,48,108,0.35),inset_0_2.5px_4px_rgba(255,255,255,0.9)]',
           renderLogo: () => (
-            // Official Instagram Camera Glyphs
             <svg
               viewBox="0 0 100 100"
-              className="w-full h-full p-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+              className="w-full h-full p-2.5 drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -141,25 +131,32 @@ export const PlatformBadge: React.FC<PlatformBadgeProps> = ({
   return (
     <div className={`inline-flex items-center gap-3 ${className}`}>
       <div
-        className={`relative flex items-center justify-center ${sizeClasses[size]} ${config.bg} ${config.shadow} ${config.border} overflow-hidden group cursor-pointer transition-transform duration-300 active:scale-95`}
+        className={`relative flex items-center justify-center ${sizeClasses[size]} ${config.bg} ${config.shadow} ${config.border} ${config.glow} overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-105 active:translate-y-0.5 active:scale-95`}
       >
-        {/* Physical 3D light reflection bevel across the top half */}
-        <div className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/35 to-transparent pointer-events-none rounded-t-[inherit]" />
+        {/* Curved Glass Specular Highlight (Lens Reflection Dome) */}
+        <div className="absolute -top-[10%] inset-x-0 h-[60%] bg-gradient-to-b from-white/60 via-white/20 to-transparent pointer-events-none rounded-t-[inherit]" />
         
-        {/* Subtle bottom bevel rim for 3D depth */}
-        <div className="absolute inset-x-0 bottom-0 h-1 bg-black/15 pointer-events-none rounded-b-[inherit]" />
+        {/* Micro-dot corner specular highlight */}
+        <div className="absolute top-1.5 left-2 w-2 h-1 bg-white/70 rounded-full blur-[0.5px] pointer-events-none" />
 
-        {/* The Authentic Logo */}
-        <div className="relative z-10 w-full h-full flex items-center justify-center">
+        {/* Diagonal high-gloss light beam */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent pointer-events-none" />
+
+        {/* Physical lower ambient occlusion shadow inside button */}
+        <div className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-t from-black/35 to-transparent pointer-events-none rounded-b-[inherit]" />
+
+        {/* The Authentic Crisp Logo */}
+        <div className="relative z-10 w-full h-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
           {config.renderLogo()}
         </div>
       </div>
 
       {showLabel && (
-        <span className="font-medium text-sm text-[#1D1B1A] tracking-tight">
+        <span className="font-semibold text-sm text-[#231E1B] tracking-tight">
           {config.name}
         </span>
       )}
     </div>
   );
 };
+
