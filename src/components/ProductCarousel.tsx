@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ChevronLeft, ChevronRight, Scale, Sparkles, ShoppingBag, Users, Check } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Scale, Sparkles, ShoppingBag, Users, Check, Maximize2 } from 'lucide-react';
 import { PRODUCTS, ProductItem, LINKS } from '../data/constants';
 import { PlatformBadge } from './PlatformBadge';
+import { ImageModal } from './ImageModal';
 
 interface ProductCarouselProps {
   onSelectProduct: (product: ProductItem) => void;
@@ -12,6 +13,7 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
   onSelectProduct,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [fullscreenProduct, setFullscreenProduct] = useState<ProductItem | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -132,6 +134,7 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
                 product={product}
                 isFeatured={idx === currentIndex}
                 onSelectProduct={onSelectProduct}
+                onOpenImage={(prod) => setFullscreenProduct(prod)}
               />
             </div>
           ))}
@@ -151,6 +154,7 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
                 product={product}
                 isFeatured={true}
                 onSelectProduct={onSelectProduct}
+                onOpenImage={(prod) => setFullscreenProduct(prod)}
               />
             </motion.div>
           ))}
@@ -172,6 +176,15 @@ export const ProductCarousel: React.FC<ProductCarouselProps> = ({
           ))}
         </div>
       </div>
+
+      {/* Lightbox / Full-Screen Image Modal */}
+      <ImageModal
+        isOpen={!!fullscreenProduct}
+        onClose={() => setFullscreenProduct(null)}
+        activeProduct={fullscreenProduct}
+        products={PRODUCTS}
+        onNavigate={(prod) => setFullscreenProduct(prod)}
+      />
     </section>
   );
 };
@@ -180,11 +193,13 @@ interface ProductCardProps {
   product: ProductItem;
   isFeatured: boolean;
   onSelectProduct: (product: ProductItem) => void;
+  onOpenImage: (product: ProductItem) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onSelectProduct,
+  onOpenImage,
 }) => {
   const [showOptions, setShowOptions] = useState(false);
   const isOneKg = product.id === 'frango-1kg' || product.weight === '1kg';
@@ -192,7 +207,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className="card-3d group relative flex flex-col h-full rounded-[28px] overflow-hidden">
       {/* Top 3D Weight & Category Badges */}
-      <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 pointer-events-none">
         <span className="px-3.5 py-1.5 rounded-full text-xs font-extrabold tracking-wide uppercase bg-[#241E1C]/90 backdrop-blur-md text-[#FAF8F5] border-t border-t-white/40 shadow-md">
           {product.weight}
         </span>
@@ -203,16 +218,38 @@ const ProductCard: React.FC<ProductCardProps> = ({
         )}
       </div>
 
-      {/* Product Image Frame with 3D Zoom & Ambient Depth */}
-      <div className="relative w-full pt-[76%] bg-[#EFE9DF] overflow-hidden">
+      {/* Interactive Product Image Frame with Click to Open Full Uncropped Image */}
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => onOpenImage(product)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onOpenImage(product);
+          }
+        }}
+        title="Clique para abrir e ver a foto inteira sem cortes"
+        aria-label={`Ver foto inteira de ${product.name} ${product.weight}`}
+        className="relative w-full pt-[76%] bg-[#EFE9DF] overflow-hidden cursor-zoom-in group/img focus:outline-hidden focus:ring-2 focus:ring-[#C5A880]"
+      >
         <img
           src={product.image}
           alt={product.alt}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108 group-hover/img:scale-110"
         />
         {/* Subtle realistic lighting vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 pointer-events-none" />
+
+        {/* Hover overlay hint */}
+        <div className="absolute inset-0 bg-black/15 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+        {/* 3D Glass "Ver Foto Inteira" Pill Badge */}
+        <div className="absolute bottom-3 right-3 z-20 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1F1A18]/85 backdrop-blur-md text-white border-t border-t-white/40 border-b border-b-black/40 shadow-lg text-[11px] font-bold tracking-wide transition-all duration-300 group-hover/img:scale-105 group-hover/img:bg-[#C5A880] group-hover/img:text-[#1F1A18]">
+          <Maximize2 className="w-3.5 h-3.5 transition-transform duration-300 group-hover/img:rotate-90" />
+          <span>Ver foto inteira</span>
+        </div>
       </div>
 
       {/* Card Content */}
