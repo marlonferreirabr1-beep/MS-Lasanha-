@@ -56,7 +56,7 @@ export const PRODUCTS: ProductItem[] = [
     weight: '1kg',
     serves: 'Serve 2 pessoas',
     servesHighlight: true,
-    image: 'https://i.postimg.cc/GhGCN46b/Screenshot-20260920-084718-i-Food.png',
+    image: 'https://i.postimg.cc/XYBfMxqV/IMG-20260921-WA0138.jpg',
     alt: 'Lasanha de Frango 1kg MS Lasanha - Serve 2 pessoas',
     badge: 'Para Compartilhar',
   },
